@@ -1,0 +1,7 @@
+Câu 1: 
+Java cho phép bạn tạo nhiều phương thức khởi tạo (constructor) cho một lớp, điều này được gọi là overloading constructors, vì vậy có thể định nghĩa một phương thức khởi tạo để xây dựng DVD theo tiêu đề và một phương thức khởi tạo khác để xây dựng DVD theo danh mục.
+
+Câu 2:
+Các phương thức truy cập (getter/setter) theo như bài đọc nên được sử dụng trong những tình huống sau:
+- Khi trả về tham chiếu giao diện
+- Lớp biên giới
