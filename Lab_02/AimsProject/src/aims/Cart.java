@@ -39,9 +39,6 @@ public class Cart {
         return addCount;
     }
     
-    
-    
-    
     // Hàm thêm 2 đĩa
     public int addDigitalVideoDisc(DigitalVideoDisc dvd1, DigitalVideoDisc dvd2) {
         if (qtyOrdered + 1 >= MAX_ITEMS) {
@@ -60,7 +57,6 @@ public class Cart {
         }
     }
     
-
     // Phương thức xóa DVD khỏi giỏ
     public void removeDigitalVideoDisc(DigitalVideoDisc disc) {
         for (int i = 0; i < qtyOrdered; i++) {
@@ -93,4 +89,26 @@ public class Cart {
         }
         System.out.println("Total cost: $" + totalCost());
     }
+    
+    //Phương thức print(_)
+    public void print() {
+        StringBuilder output = new StringBuilder();
+        output.append("***********************CART***********************\n");
+        output.append("Ordered Items:\n");
+
+        for (int i = 0; i < items.length; i++) {
+            DigitalVideoDisc item = items[i];
+            if (item != null) {
+                output.append(String.format("%d. %s\n", i + 1, item));
+            }
+        }
+
+        output.append(String.format("Total cost: $%.2f\n", totalCost()));
+        output.append("***************************************************");
+        System.out.println(output.toString());
+    }
+
+
 }
+    
+        

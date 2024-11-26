@@ -8,7 +8,17 @@ public class DigitalVideoDisc {
     private String director;
     private int length;
     private float cost;
+    
+    @Override
+    public String toString() {
+        return String.format("DVD - %s - %s - %s - %d: %.2f $", title, category, director, length, cost);
+    }
 
+    public boolean isMatch(String title) {
+        return this.title.toLowerCase().contains(title.toLowerCase());
+    }
+
+    
     public DigitalVideoDisc(String title, String category, String director, float cost) {
         super();
         this.id = ++nbDigitalVideoDiscs; // Cập nhật ID và số lượng DVD
