@@ -1,0 +1,5 @@
+6.1
+
+Nếu người dùng chọn “Hủy”, thông điệp sẽ hiển thị “Bạn đã chọn: Không” giống như khi chọn tùy chọn “Không”.
+
+Để tùy chỉnh các tùy chọn cho người dùng, ta có thẻ dùng Dialogs
