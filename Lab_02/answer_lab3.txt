@@ -1,0 +1,12 @@
+1.Câu hỏi: Java là ngôn ngữ lập trình "Pass by Value" hay "Pass by Reference"? 
+
+- Java là một ngôn ngữ lập trình theo kiểu "Pass by Value". Khi bạn truyền một tham số vào một phương thức, giá trị của tham số đó sẽ được sao chép và gửi vào phương thức. Điều này có nghĩa là nếu bạn thay đổi giá trị của tham số bên trong phương thức, giá trị của biến gọi phương thức sẽ không bị ảnh hưởng.
+
+
+2.Sau khi gọi swap(jungleDVD, cinderellaDVD), tại sao tiêu đề của hai đối tượng này vẫn giữ nguyên?
+
+Sau khi gọi swap(jungleDVD, cinderellaDVD), tiêu đề của hai đối tượng vẫn giữ nguyên vì Java sử dụng mô hình "Pass by Value". Khi bạn truyền một tham số vào một phương thức, Java sẽ sao chép giá trị của tham số và truyền vào phương thức. Trong trường hợp này, swap() chỉ swap các giá trị của tham số, không ảnh hưởng đến các biến gọi phương thức. Khi ta thay đổi giá trị của tham số bên trong phương thức (như việc đổi chỗ giữa o1 và o2), sự thay đổi này không ảnh hưởng đến giá trị của các đối tượng gốc. 
+
+3.Sau khi gọi changeTitle(jungleDVD, cinderellaDVD.getTitle()), tại sao tiêu đề của JungleDVD lại thay đổi?
+
+Sau khi gọi changeTitle(jungleDVD, cinderellaDVD.getTitle()), tiêu đề của jungleDVD lại thay đổi vì trong phương thức changeTitle(), chúng ta đã gọi dvd.setTitle(title) để thay đổi trực tiếp tiêu đề của đối tượng jungleDVD. Mặc dù sau đó chúng ta tạo một đối tượng mới với tiêu đề cũ, nhưng biến jungleDVD trong main() vẫn đang tham chiếu đến đối tượng mới với tiêu đề đã được thay đổi.
