@@ -11,15 +11,55 @@ public class Cart {
     }
 
     // Phương thức thêm DVD vào giỏ
-    public void addDigitalVideoDisc(DigitalVideoDisc disc) {
+    public int addDigitalVideoDisc(DigitalVideoDisc disc) {
         if (qtyOrdered < MAX_ITEMS) {
             items[qtyOrdered] = disc;
             qtyOrdered++;
             System.out.println("The disc \"" + disc.getTitle() + "\" has been added.");
+            return 1;
         } else {
             System.out.println("The cart is almost full.");
+            return 0;
         }
     }
+    // Phương thức thêm mảng DVD
+    public int addDigitalVideoDisc(DigitalVideoDisc[] dvdArray) {
+        int addCount = 0;
+        for (DigitalVideoDisc disc : dvdArray) {
+            if (qtyOrdered == MAX_ITEMS) {
+                System.out.println("The cart is almost full. Can't add more discs");
+                break;
+            } else {
+                items[qtyOrdered] = disc;
+                qtyOrdered++;
+                System.out.println("The DVD " + disc.getTitle() + " has been added!");
+                addCount++;
+            }
+        }
+        return addCount;
+    }
+    
+    
+    
+    
+    // Hàm thêm 2 đĩa
+    public int addDigitalVideoDisc(DigitalVideoDisc dvd1, DigitalVideoDisc dvd2) {
+        if (qtyOrdered + 1 >= MAX_ITEMS) {
+            System.out.println("The cart is almost full. Can't add more discs");
+            return 0;
+        } else {
+            items[qtyOrdered] = dvd1;
+            qtyOrdered++;
+            System.out.println("The DVD " + dvd1.getTitle() + " has been added!");
+
+            items[qtyOrdered] = dvd2;
+            qtyOrdered++;
+            System.out.println("The DVD " + dvd2.getTitle() + " has been added!");
+
+            return 2; // Đã thêm 2 đĩa DVD
+        }
+    }
+    
 
     // Phương thức xóa DVD khỏi giỏ
     public void removeDigitalVideoDisc(DigitalVideoDisc disc) {
