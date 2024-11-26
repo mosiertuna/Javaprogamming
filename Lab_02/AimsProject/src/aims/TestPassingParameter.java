@@ -22,7 +22,6 @@ public class TestPassingParameter {
         dvd1.setDirector(dvd2.getDirector());
         dvd1.setLength(dvd2.getLength());
         dvd1.setCost(dvd2.getCost());
-        
         dvd2.setTitle(temp.getTitle());
         dvd2.setCategory(temp.getCategory());
         dvd2.setDirector(temp.getDirector());
