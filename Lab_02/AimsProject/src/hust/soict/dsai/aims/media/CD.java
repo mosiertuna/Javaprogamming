@@ -2,7 +2,7 @@ package hust.soict.dsai.aims.media;
 
 import java.util.List;
 
-public class CD extends Disc{
+public class CD extends Disc implements Playable{
 	public CD(int id, String title, String category, float cost, String director, int length) {
 		super(id, title, category, cost, director, length);
 	}
@@ -41,12 +41,22 @@ public class CD extends Disc{
 		}
 	}
 	
-	public void getLegth() {
-		
+	public int getLegth() {
+		int totalLength = 0;
+		for(Track track : tracks) {
+			totalLength += track.getLength();
+		}
+	return totalLength;
 	}
 	
-	
-	
+    @Override
+    public void play() {
+        System.out.println("Playing CD: " + this.getTitle());
+        System.out.println("CD length: " + this.getLength());
+        for (Track track : tracks) {
+            track.play();
+        }
+    }
 	
 	
 	

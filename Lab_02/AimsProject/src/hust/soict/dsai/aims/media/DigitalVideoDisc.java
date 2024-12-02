@@ -1,7 +1,7 @@
 package hust.soict.dsai.aims.media;
 
 	
-public class DigitalVideoDisc extends Media {
+public class DigitalVideoDisc extends Media implements Playable {
     private String director;
     private int length; 
     public String getDirector() {
@@ -36,7 +36,12 @@ public class DigitalVideoDisc extends Media {
     public boolean isMatch(String title) {
         return this.getTitle().toLowerCase().contains(title.toLowerCase());
     }
-
+    
+    @Override
+    public void play() {
+        System.out.println("Playing DVD: " + this.getTitle());
+        System.out.println("DVD length: " + this.getLength());
+    }
     
  
 
