@@ -4,7 +4,15 @@ import hust.soict.dsai.aims.media.Media;
 
 public class Cart {
     private ArrayList<Media> itemsOrdered = new ArrayList<Media>();
-    private static final int MAX_ITEMS = 10; // Giới hạn số lượng DVD trong giỏ
+    public ArrayList<Media> getItemsOrdered() {
+		return itemsOrdered;
+	}
+
+	public void setItemsOrdered(ArrayList<Media> itemsOrdered) {
+		this.itemsOrdered = itemsOrdered;
+	}
+
+	private static final int MAX_ITEMS = 10; // Giới hạn số lượng DVD trong giỏ
 	public static int getMaxItems() {
 		return MAX_ITEMS;
 	}
@@ -60,6 +68,16 @@ public class Cart {
         System.out.println(output.toString());
     }
 
+
+    public Media findMediaByTitle(String title) {
+        for (Media media : itemsOrdered) {
+            if (media.getTitle().equalsIgnoreCase(title)) {
+                return media;
+            }
+        }
+        return null;
+    }
+  
 
 
 

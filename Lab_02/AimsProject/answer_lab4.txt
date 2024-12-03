@@ -1,0 +1,51 @@
+1. Lớp nào nên implement interface `Comparable`?
+   - Các lớp đại diện cho các mặt hàng trong giỏ hàng, như `DigitalVideoDisc`, `Book`, `CompactDisc`, v.v. nên implement interface `Comparable`.
+
+
+2. Làm thế nào để implement phương thức `compareTo()` để phản ánh thứ tự mong muốn?**
+   - Trong phương thức `compareTo()`, bạn cần so sánh các thuộc tính của đối tượng để xác định thứ tự. Ví dụ, với `DigitalVideoDisc`, bạn có thể so sánh theo tiêu đề, sau đó là độ dài, và cuối cùng là giá.
+   - Ví dụ:
+     java
+     @Override
+     public int compareTo(DigitalVideoDisc other) {
+         int titleCompare = this.getTitle().compareTo(other.getTitle());
+         if (titleCompare != 0) {
+             return titleCompare;
+         } else {
+             int lengthCompare = Integer.compare(other.getLength(), this.getLength());
+             if (lengthCompare != 0) {
+                 return lengthCompare;
+             } else {
+                 return Float.compare(this.getCost(), other.getCost());
+             }
+         }
+     }
+
+
+3. Có thể có hai quy tắc sắp xếp của mặt hàng (theo tiêu đề sau đó là giá và theo giá sau đó là tiêu đề) nếu sử dụng interface `Comparable`?
+   - Không, không thể có hai quy tắc sắp xếp khác nhau trong cùng một lớp khi sử dụng interface `Comparable`. Mỗi lớp chỉ có thể có một cách sắp xếp duy nhất được định nghĩa trong phương thức `compareTo()`.
+   - Nếu bạn muốn có hai quy tắc sắp xếp khác nhau, bạn có thể sử dụng interface `Comparator` thay vì `Comparable`.
+
+
+4.Nếu các đĩa DVD có quy tắc sắp xếp khác với các loại phương tiện khác, tức là theo tiêu đề, sau đó giảm dần độ dài, sau đó là giá, bạn sẽ sửa đổi mã như thế nào để cho phép điều này?
+   - Trong trường hợp này, bạn có thể tạo một lớp `DVDComparator` implement interface `Comparator<DigitalVideoDisc>` và override phương thức `compare()` để định nghĩa quy tắc sắp xếp riêng cho các đĩa DVD.
+   - Ví dụ:
+     java
+     public class DVDComparator implements Comparator<DigitalVideoDisc> {
+         @Override
+         public int compare(DigitalVideoDisc d1, DigitalVideoDisc d2) {
+             int titleCompare = d1.getTitle().compareTo(d2.getTitle());
+             if (titleCompare != 0) {
+                 return titleCompare;
+             } else {
+                 int lengthCompare = Integer.compare(d2.getLength(), d1.getLength());
+                 if (lengthCompare != 0) {
+                     return lengthCompare;
+                 } else {
+                     return Float.compare(d1.getCost(), d2.getCost());
+                 }
+             }
+         }
+     }
+    
+   - Sau đó, bạn có thể sử dụng `DVDComparator` để so sánh các đĩa DVD, trong khi các loại phương tiện khác vẫn sử dụng phương thức `compareTo()` của lớp `Comparable`.

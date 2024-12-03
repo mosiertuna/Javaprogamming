@@ -12,6 +12,10 @@ public class books extends Media {
 		this.authors = authors;
 	}
 	
+	public books(int id, String title, String category, float cost) {
+		super(id, title, category, cost);
+	}
+	
 	// addAuthor method
 	public void addAuthor(String authorName) {
 		if(!authors.contains(authorName)) {
@@ -31,6 +35,16 @@ public class books extends Media {
 			System.out.println("Không thấy trong " + getTitle());
 		}
 	}
+	
+	
+	@Override
+	public int compareTo(Media o) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	
+	
+
 	
 	
 }

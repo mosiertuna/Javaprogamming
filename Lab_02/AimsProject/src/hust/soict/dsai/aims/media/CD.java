@@ -3,9 +3,6 @@ package hust.soict.dsai.aims.media;
 import java.util.List;
 
 public class CD extends Disc implements Playable{
-	public CD(int id, String title, String category, float cost, String director, int length) {
-		super(id, title, category, cost, director, length);
-	}
 	private String artist;
 	private List<Track> tracks;
 	public String getArtist() {
@@ -20,6 +17,18 @@ public class CD extends Disc implements Playable{
 	public void setTracks(List<Track> tracks) {
 		this.tracks = tracks;
 	}
+	
+	public CD(int id, String title, String category, float cost, String director, int length) {
+		super(id, title, category, cost, director, length);
+	}
+	public CD(int id, String title, String category, float cost, String director, int length, String artist,
+			List<Track> tracks) {
+		super(id, title, category, cost, director, length);
+		this.artist = artist;
+		this.tracks = tracks;
+	}
+	
+	
 	// Thêm bài mới
 	public void addTrack(Track track) {
 		if(!tracks.contains(track)) {

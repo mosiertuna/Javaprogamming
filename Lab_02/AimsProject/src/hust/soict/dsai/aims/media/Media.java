@@ -1,10 +1,12 @@
 package hust.soict.dsai.aims.media;
 
-public abstract class Media {
+public abstract class Media implements Comparable<Media> {
 	private int id;
 	private String title;
 	private String category;
 	private float cost;
+
+	
 	public int getId() {
 		return id;
 	}
@@ -47,16 +49,10 @@ public abstract class Media {
         Media media = (Media) obj; // Ép kiểu
         return title != null ? title.equals(media.title) : media.title == null; // So sánh title
     }
+    
+
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 
 }
