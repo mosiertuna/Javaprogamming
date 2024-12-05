@@ -7,44 +7,42 @@ public class books extends Media {
 	public List<String> getAuthors() {
 		return authors;
 	}
-	public books(int id, String title, String category, float cost,List<String> authors) {
-		super(id, title, category, cost);
+	public books(String title, String category, float cost) {
+		super(title, category, cost);
+	}
+	public books(String title, String category, float cost, List<String> authors) {
+		super(title, category, cost);
 		this.authors = authors;
 	}
 	
-	public books(int id, String title, String category, float cost) {
-		super(id, title, category, cost);
-	}
-	
 	// addAuthor method
-	public void addAuthor(String authorName) {
-		if(!authors.contains(authorName)) {
-			authors.add(authorName);
-			System.out.println("Đã thêm vào " + getTitle());
-		}
-		else {
-			System.out.println("Đã tồn tại trong " + getTitle());
-		}
-	}
+    public void addAuthor(String authorName) {
+        if (authors.contains(authorName)) {
+            System.out.println("Author is already existed in the list");
+            return;
+        }    
+        authors.add(authorName);
+        System.out.println("Added successfully.");
+    }
+    
 	// removeAuthor method
-	public void removeAuthor(String authorName) {
-		if(authors.remove(authorName)) {
-			System.out.println("Đã xóa khỏi " + getTitle());
-		}
-		else {
-			System.out.println("Không thấy trong " + getTitle());
-		}
-	}
-	
-	
-	@Override
-	public int compareTo(Media o) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-	
-	
+    public void removeAuthor(String authorName) {
+        if (authors.contains(authorName)) {
+            System.out.println("Cannot find the author in the list.");
+            return;
+        }
+        authors.remove(authorName);
+        System.out.println("Deleted successfully.");
+    }
 
-	
+    @Override
+    public void print() {
+        System.out.println("Book: " + this.getTitle() + " | Category: " + this.getCategory() + " | Cost: " + this.getCost());
+    }
+
+    @Override
+    public String toString() {
+        return "Book: " + super.toString();
+    }
 	
 }

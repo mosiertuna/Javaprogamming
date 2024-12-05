@@ -1,12 +1,13 @@
 package hust.soict.dsai.aims.media;
 
-public abstract class Media implements Comparable<Media> {
+import java.util.Comparator;
+
+public abstract class Media {
+	private static int nbMedia = 0;
 	private int id;
 	private String title;
 	private String category;
 	private float cost;
-
-	
 	public int getId() {
 		return id;
 	}
@@ -31,25 +32,42 @@ public abstract class Media implements Comparable<Media> {
 	public void setCost(float cost) {
 		this.cost = cost;
 	}
-	public Media(int id, String title, String category, float cost) {
-		super();
-		this.id = id;
+	public Media(String title, String category, float cost) {
+		this.id = ++nbMedia;
 		this.title = title;
 		this.category = category;
 		this.cost = cost;
 	}
 	
-    @Override
-    public boolean equals(Object obj) {
-        // Kiểm tra nếu obj là một thể hiện của Track
-        if (this == obj) return true; // So sánh tham chiếu
-        if (!super.equals(obj)) return false; // Kiểm tra title bằng phương thức equals() của Media
-        if (obj == null || getClass() != obj.getClass()) return false; // Kiểm tra null và kiểu
-
-        Media media = (Media) obj; // Ép kiểu
-        return title != null ? title.equals(media.title) : media.title == null; // So sánh title
+	@Override
+	public boolean equals(Object o) {
+		Media media = (Media) o;
+		try {
+			String title = media.getTitle();
+			return title.equals(this.getTitle());
+		} catch (NullPointerException e) {
+			return false;
+		}
+	}
+	
+	@Override
+    public String toString() {
+        return 	"ID: " + id + 
+        		" | Title: " + title + 
+        		" | Category: " + category +
+        		" | Cost: " + cost;
     }
     
+	public void print() {
+		//phương thức cho các class con
+	}
+	
+	public boolean isMatch(String title) {
+		return this.getTitle().equalsIgnoreCase(title);
+	}
+	
+	public static final Comparator<Media> COMPARE_BY_TITLE_COST = new MediaComparatorByTitleCost();
+	public static final Comparator<Media> COMPARE_BY_COST_TITLE = new MediaComparatorByCostTitle();
 
 	
 	

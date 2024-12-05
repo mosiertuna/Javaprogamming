@@ -35,7 +35,7 @@ public class Track implements Playable {
         if (obj == null || getClass() != obj.getClass()) return false; // Kiểm tra null và kiểu
 
         Track track = (Track) obj; // Ép kiểu
-        return Double.compare(track.length, length) == 0; // So sánh độ dài
+        return track.getTitle().equals(this.getTitle()) && track.getLength() == this.getLength(); // So sánh độ dài
     }
 	
 	

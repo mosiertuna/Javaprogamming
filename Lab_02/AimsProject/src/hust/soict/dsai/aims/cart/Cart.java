@@ -1,5 +1,7 @@
 package hust.soict.dsai.aims.cart;
 import java.util.ArrayList;
+import java.util.Collections;
+
 import hust.soict.dsai.aims.media.Media;
 
 public class Cart {
@@ -67,6 +69,22 @@ public class Cart {
         output.append("***************************************************");
         System.out.println(output.toString());
     }
+    
+    // Title sort method
+    public void sortCartByTitle() {
+        Collections.sort(itemsOrdered, Media.COMPARE_BY_TITLE_COST);
+        System.out.println("Cart sorted by title.");
+    }
+
+    // Cost sort method
+    public void sortCartByCost() {
+        Collections.sort(itemsOrdered, Media.COMPARE_BY_COST_TITLE);
+        System.out.println("Cart sorted by cost.");
+    }
+    public void clear() {
+        itemsOrdered.clear();
+        //System.out.println("Cart has been cleared.");
+    }
 
 
     public Media findMediaByTitle(String title) {
@@ -77,6 +95,8 @@ public class Cart {
         }
         return null;
     }
+    
+    
   
 
 
