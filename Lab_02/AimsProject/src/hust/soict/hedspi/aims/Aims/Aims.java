@@ -1,20 +1,13 @@
-package hust.soict.dsai.aims.Aims;
-
-import java.awt.print.Book;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+package hust.soict.hedspi.aims.Aims;
 import java.util.Scanner;
 
-import hust.soict.dsai.aims.cart.Cart;
-import hust.soict.dsai.aims.media.CD;
-import hust.soict.dsai.aims.media.DigitalVideoDisc;
-import hust.soict.dsai.aims.media.Disc;
-import hust.soict.dsai.aims.media.Media;
-import hust.soict.dsai.aims.media.Playable;
-import hust.soict.dsai.aims.media.Track;
-import hust.soict.dsai.aims.media.books;
-import hust.soict.dsai.aims.store.Store;
+import hust.soict.hedspi.aims.cart.Cart;
+import hust.soict.hedspi.aims.media.CD;
+import hust.soict.hedspi.aims.media.DigitalVideoDisc;
+import hust.soict.hedspi.aims.media.Media;
+import hust.soict.hedspi.aims.media.Playable;
+import hust.soict.hedspi.aims.media.books;
+import hust.soict.hedspi.aims.store.Store;
 
 public class Aims {
     private static Store store = new Store();
