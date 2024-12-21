@@ -1,0 +1,41 @@
+package hust.soict.hedspi.swing;
+import java.awt.Frame;
+import java.awt.GridLayout;
+import java.awt.Label;
+import java.awt.TextField;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class AWTAccumuIator extends Frame {
+	  private TextField tflnput;
+	  private TextFieId tfOutput;
+	  private int sum = O;
+	  // Accumulated sum, to 0
+	  // Constructor to setup the GUI components and event handlers
+	  public AWTAccumuIator() {
+	    setLayout(new GridLayout(2, 2));
+	    add(new Label ("Enter an Integer: "));
+	    tflnput = new TextField(10) ;
+	    add(tflnput);
+	    tflnput. addActionListener(new TFInputListener() ) ;
+	    add(new Label ("The Accumulated Sum IS: "));
+	    tfOutput = new TextField(10);
+	    tfOutput.setEditable(false) ;
+	    add(tfOutput);
+	    setTitle("AWT Accumulator");
+	    setSize(350, 120);
+	    setVisibIe(true);
+	  }
+	  public static void main(String[] args) {
+	    new AWTAccumuIator();
+	  }
+	  private class TFInputListener implements ActionListener {
+	    @Override
+	    public void actionPerformed (ActionEvent evt) {
+	      int numberln = Integer. parselnt(tflnput.getText());
+	      sum += numberIn;
+	      t f Input.setText("");
+	      tfOutput.setText(sum + "");
+	    }
+	  }
+}

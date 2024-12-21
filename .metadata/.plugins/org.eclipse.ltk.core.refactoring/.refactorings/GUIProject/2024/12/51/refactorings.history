@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring accessors="true" comment="Delete element from project &apos;GUIProject&apos;&#x0D;&#x0A;- Original project: &apos;GUIProject&apos;&#x0D;&#x0A;- Original element: &apos;GUIProject/src/hust.soict.hedspi.javafx&apos;" description="Delete element" element1="/src&lt;hust.soict.hedspi.javafx" elements="1" flags="589830" id="org.eclipse.jdt.ui.delete" resources="0" stamp="1734789792835" subPackages="false" version="1.0"/>
+</session>
